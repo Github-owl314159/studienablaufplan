@@ -8,6 +8,7 @@
     "clean:release": "rm -rf app/release/**",
     "lint": "eslint -c .eslintrc.json app/src/js/** && eslint -c .eslintrc.json server/src/**",
     "debug": "npm run clean:release && npm run static && npm run js && npm run css",
+    "start": "node server/index.js",
     "build": "npm run clean && npm install && npm run static:min && npm run css:min && npm run js:min",
     "static": "cp -r app/src/images/. app/release && cp app/src/index.html app/release/index.html",
     "static:min": "npm run static && place app/release/index.html style.css style.min.css && place app/release/index.html main.js main.min.js",
@@ -26,6 +27,7 @@
     "babel-preset-minify": "^0.5.0",
     "browserify": "^16.2.3",
     "eslint": "^5.16.0",
+    "express": "^4.16.4",
     "less": "^3.9.0",
     "less-plugin-clean-css": "^1.5.1",
     "place": "^1.2.1"
