@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "npm run clean:release && rm -rf node_modules",
     "clean:release": "rm -rf app/release/**",
-    "lint": "eslint -c .eslintrc.json app/src/js/** && eslint -c .eslintrc.json server/src/**",
-    "debug": "npm run clean:release && npm run static && npm run js && npm run css",
+    "lint": "eslint -c .eslintrc.json app/src/js/** && eslint -c .eslintrc.json server/**",
+    "debug": "npm run lint && npm run clean:release && npm run static && npm run js && npm run css",
     "start": "node server/index.js",
     "build": "npm run clean && npm install && npm run static:min && npm run css:min && npm run js:min",
     "static": "cp -r app/src/images/. app/release && cp app/src/index.html app/release/index.html",
