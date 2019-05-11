@@ -1,0 +1,21 @@
+body {
+  background-color: darkgray;
+}
+body main {
+  display: flex;
+  justify-content: center;
+}
+body main .grid-container {
+  display: grid;
+  width: 80vw;
+  height: 50vh;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 2px;
+}
+body main .grid-container div {
+  background-color: lightcoral;
+}
+body main .grid-container div p {
+  text-align: center;
+}
