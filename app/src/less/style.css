@@ -59,7 +59,7 @@ body .test #popupBtnRight {
   width: 40%;
   height: 10%;
 }
-.lightbox-container {
+.modal-switch-container {
   min-width: 500px;
   min-height: 200px;
   position: fixed;
@@ -71,7 +71,7 @@ body .test #popupBtnRight {
   transition: transform 0.25s ease-out;
   display: none;
 }
-.lightbox:before {
+.modal-switch:before {
   content: "";
   position: fixed;
   top: 0;
@@ -81,43 +81,9 @@ body .test #popupBtnRight {
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
 }
-.lightbox:target .lightbox-container {
+.modal-switch:target .lightbox-container {
   display: block;
 }
-.lightbox:target:before {
+.modal-switch:target:before {
   display: block;
-}
-.btn {
-  border-width: 0;
-  outline: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  background-color: #2ecc71;
-  color: #ecf0f1;
-  transition: background-color 0.3s;
-}
-.btn:hover,
-.btn:focus {
-  background-color: #27ae60;
-}
-.btn:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  width: 0;
-  padding-top: 0;
-  border-radius: 100%;
-  background-color: rgba(236, 240, 241, 0.3);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-.btn:active:before {
-  width: 120%;
-  padding-top: 120%;
-  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
