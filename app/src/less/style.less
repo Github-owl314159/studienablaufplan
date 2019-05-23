@@ -49,37 +49,27 @@ body {
       a:hover {
         text-decoration: none;
       }
-
-      button {
-        background-color: lightcoral;
-        border-color: transparent;
-        &:hover {
-          background-color: #f28f8f;
-        }
-
-        p {
-          text-align: center;
-        }
-      }
     }
   }
 }
 
 .modal-switch {
   &-container {
-    min-width: 500px;
-    min-height: 200px;
+    // min-width: 500px;
+    // min-height: 200px;
+    flex-direction: column;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -80%);
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -80%);
     border-radius: 15px;
     background-color: #eceff1;
-    transition: transform 0.25s ease-out;
+    // transition: transform 0.25s ease-out;
     display: none;
   }
 
-  &:before {
+// dimmed background cover for the modal view
+  &:before { 
     content: "";
     position: fixed;
     top: 0;
@@ -90,10 +80,11 @@ body {
     display: none;
   }
 
+  // modal = on = visible
   &:target {
     .modal-switch {
       &-container {
-        display: block;
+        display: flex;
       }
     }
       

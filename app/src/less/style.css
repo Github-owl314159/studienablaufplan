@@ -43,26 +43,11 @@ body main .grid-container a,
 body main .grid-container a:hover {
   text-decoration: none;
 }
-body main .grid-container button {
-  background-color: lightcoral;
-  border-color: transparent;
-}
-body main .grid-container button:hover {
-  background-color: #f28f8f;
-}
-body main .grid-container button p {
-  text-align: center;
-}
 .modal-switch-container {
-  min-width: 500px;
-  min-height: 200px;
+  flex-direction: column;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -80%);
   border-radius: 15px;
   background-color: #eceff1;
-  transition: transform 0.25s ease-out;
   display: none;
 }
 .modal-switch:before {
@@ -76,7 +61,7 @@ body main .grid-container button p {
   display: none;
 }
 .modal-switch:target .modal-switch-container {
-  display: block;
+  display: flex;
 }
 .modal-switch:target:before {
   display: block;
