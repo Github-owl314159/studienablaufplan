@@ -24,12 +24,7 @@ body main .grid-container {
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 2px;
 }
-<<<<<<< HEAD
 body main .grid-container a {
-=======
-body main .grid-container a,
-body main .grid-container a:hover {
->>>>>>> a13b459c4a135fcf70bb5353e6ee0399b6a0816c
   text-decoration: none;
 }
 body main .grid-container button {
@@ -64,31 +59,37 @@ body .test #popupBtnRight {
   width: 40%;
   height: 10%;
 }
-.modal-switch-container {
-  min-width: 500px;
-  min-height: 200px;
-  position: fixed;
+.btn {
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  transition: background-color 0.3s;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #27ae60;
+}
+.btn:before {
+  content: "";
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -80%);
-  border-radius: 15px;
-  background-color: #ECEFF1;
-  transition: transform 0.25s ease-out;
-  display: none;
-}
-.modal-switch:before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: none;
-}
-.modal-switch:target .lightbox-container {
   display: block;
+  width: 0;
+  padding-top: 0;
+  border-radius: 100%;
+  background-color: rgba(236, 240, 241, 0.3);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-.modal-switch:target:before {
-  display: block;
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
