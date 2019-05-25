@@ -9,7 +9,6 @@ body {
 body header h1 {
   text-align: center;
   text-shadow: 0 1px 0 #fff;
-  color: green;
 }
 body main {
   display: flex;
@@ -24,12 +23,8 @@ body main .grid-container {
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 2px;
 }
-<<<<<<< HEAD
-body main .grid-container a {
-=======
 body main .grid-container a,
 body main .grid-container a:hover {
->>>>>>> a13b459c4a135fcf70bb5353e6ee0399b6a0816c
   text-decoration: none;
 }
 body main .grid-container button {
