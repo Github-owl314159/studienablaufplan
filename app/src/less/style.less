@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -13,101 +13,85 @@ body {
             text-shadow: 0 1px 0 #fff;
         }
     }
+  }
 
-    main {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .grid-container {
+      display: grid;
+      width: 80vw;
+      height: 50vh;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      grid-gap: 2px;
+
+      a {
         display: flex;
-        flex-direction: column;
         align-items: center;
-    
-        .grid-container {
-            display: grid;
-            width: 80vw;
-            height: 50vh;
-            grid-template-columns: repeat(6, 1fr) ;
-            grid-template-rows: repeat(6, 1fr);
-            grid-gap: 2px;
-
-            a , a:hover {
-                text-decoration: none;
-            }
-        
-            button {
-                background-color: lightcoral;
-                border-color: transparent;
-                &:hover {
-                    background-color: #f28f8f;
-                }
-
-                p {
-                    text-align: center;
-                }
-            }
+        justify-content: center;
+        background-color: lightcoral;
+        border-color: transparent;
+        color: black;
+        font-size: smaller;
+        &:hover {
+          background-color: #f28f8f;
         }
+
+        p {
+          text-align: center;
+        }
+      }
+
+      a,
+      a:hover {
+        text-decoration: none;
+      }
     }
+  }
 
-    .test {
-        position: absolute;
-        top: 13%;
-        right: 9%;
-        height: 80vh;
-        width: 80vw;
-        background-color: #ffffff;
-
-        #popupBtnLeft {
-            position: relative;
-            top: 85%;
-            left: 8%;
-            width: 40%;
-            height: 10%;
-        }
-
-        #popupBtnRight {
-            position: relative;
-            top: 85%;
-            left: 12%;
-            width: 40%;
-            height: 10%;
-        }
-    }
-}
 
 .modal-switch {
+  &-container {
+    // min-width: 500px;
+    // min-height: 200px;
+    flex-direction: column;
+    position: fixed;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -80%);
+    border-radius: 15px;
+    background-color: #eceff1;
+    // transition: transform 0.25s ease-out;
+    display: none;
+  }
 
-    &-container {
-        min-width: 500px;
-        min-height: 200px;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -80%);
-        border-radius: 15px;
-        background-color: #ECEFF1;
-        transition: transform 0.25s ease-out;
-        display: none;
+// dimmed background cover for the modal view
+  &:before { 
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+  }
+
+  // modal = on = visible
+  &:target {
+    .modal-switch {
+      &-container {
+        display: flex;
+      }
     }
-
-    &:before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,.8);
-        display: none;
-    }
-
-    &:target {
-        .lightbox { 
-            &-container {
-                display: block;
-            }
-        }
-
-        &:before {
-            display: block;
-        }
-    }
+      
+      &:before {
+        display: block;
+      }
+  }
 }
 
 // .btn {
@@ -125,18 +109,18 @@ body {
 
 //   &:before {
 //     content: "";
-  
+
 //     position: absolute;
 //     top: 50%;
 //     left: 50%;
-    
+
 //     display: block;
 //     width: 0;
 //     padding-top: 0;
-      
+
 //     border-radius: 100%;
 //     background-color: rgba(236, 240, 241, .3);
-  
+
 //     -webkit-transform: translate(-50%, -50%);
 //     -moz-transform: translate(-50%, -50%);
 //     -ms-transform: translate(-50%, -50%);
@@ -150,4 +134,3 @@ body {
 //     transition: width .2s ease-out, padding-top .2s ease-out;
 //   }
 // }
-
