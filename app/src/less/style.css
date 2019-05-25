@@ -2,20 +2,20 @@
   margin: 0;
   padding: 0;
 }
-body {
-  font-family: Helvetica, Arial, sans-serif;
+* body {
+  font-family: "Roboto", sans-serif;
   background-color: #ddd;
 }
-body header h1 {
+* body header h1 {
   text-align: center;
   text-shadow: 0 1px 0 #fff;
 }
-main {
+* body main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-main .grid-container {
+* body main .grid-container {
   display: grid;
   width: 80vw;
   height: 50vh;
@@ -23,7 +23,7 @@ main .grid-container {
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 2px;
 }
-main .grid-container a {
+* body main .grid-container a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,26 +32,67 @@ main .grid-container a {
   color: black;
   font-size: smaller;
 }
-main .grid-container a:hover {
+* body main .grid-container a:hover {
   background-color: #f28f8f;
 }
-main .grid-container a p {
+* body main .grid-container a p {
   text-align: center;
 }
-main .grid-container a,
-main .grid-container a:hover {
+* body main .grid-container a,
+* body main .grid-container a:hover {
   text-decoration: none;
 }
-.modal-switch-container {
+* body .modal-switch-container {
   flex-direction: column;
-  position: fixed;
+  position: absolute;
+  width: 80vw;
+  height: 70vh;
+  top: 8vh;
+  left: 10vw;
+  justify-content: space-around;
   border-radius: 15px;
   background-color: #eceff1;
   display: none;
 }
-.modal-switch:before {
+* body .modal-switch-container a {
+  text-decoration: none;
+}
+* body .modal-switch-container form {
+  display: flex;
+  flex-direction: column;
+}
+* body .modal-switch-container .modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 0.05;
+}
+* body .modal-switch-container .modal-buttons button {
+  padding: 0;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  width: 25%;
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  color: #ecf0f1;
+  transition: background-color 0.3s;
+}
+* body .modal-switch-container .modal-buttons #first {
+  background-color: #e67e22;
+}
+* body .modal-switch-container .modal-buttons #first:hover {
+  background-color: #d35400;
+}
+* body .modal-switch-container .modal-buttons #second {
+  background-color: #2ecc71;
+}
+* body .modal-switch-container .modal-buttons #second:hover {
+  background-color: #27ae60;
+}
+* body .modal-switch:before {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -59,9 +100,9 @@ main .grid-container a:hover {
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
 }
-.modal-switch:target .modal-switch-container {
+* body .modal-switch:target .modal-switch-container {
   display: flex;
 }
-.modal-switch:target:before {
+* body .modal-switch:target:before {
   display: block;
 }

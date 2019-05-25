@@ -1,136 +1,135 @@
 * {
   margin: 0;
   padding: 0;
-}
 
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    background-color:   #ddd;
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: #ddd;
 
     header {
-        h1 {
+      h1 {
+        text-align: center;
+        text-shadow: 0 1px 0 #fff;
+      }
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .grid-container {
+        display: grid;
+        width: 80vw;
+        height: 50vh;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-gap: 2px;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: lightcoral;
+          border-color: transparent;
+          color: black;
+          font-size: smaller;
+          &:hover {
+            background-color: #f28f8f;
+          }
+
+          p {
             text-align: center;
-            text-shadow: 0 1px 0 #fff;
-        }
-    }
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .grid-container {
-      display: grid;
-      width: 80vw;
-      height: 50vh;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(6, 1fr);
-      grid-gap: 2px;
-
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: lightcoral;
-        border-color: transparent;
-        color: black;
-        font-size: smaller;
-        &:hover {
-          background-color: #f28f8f;
+          }
         }
 
-        p {
-          text-align: center;
+        a,
+        a:hover {
+          text-decoration: none;
         }
       }
-
-      a,
-      a:hover {
-        text-decoration: none;
-      }
     }
-  }
 
-
-.modal-switch {
-  &-container {
-    // min-width: 500px;
-    // min-height: 200px;
-    flex-direction: column;
-    position: fixed;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -80%);
-    border-radius: 15px;
-    background-color: #eceff1;
-    // transition: transform 0.25s ease-out;
-    display: none;
-  }
-
-// dimmed background cover for the modal view
-  &:before { 
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none;
-  }
-
-  // modal = on = visible
-  &:target {
     .modal-switch {
       &-container {
-        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 80vw;
+        height: 70vh;
+        top: 8vh;
+        left: 10vw;
+        justify-content: space-around;
+        border-radius: 15px;
+        background-color: #eceff1;
+        display: none;
+
+        a {
+          text-decoration: none;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .modal-buttons {
+          display: flex;
+          justify-content: space-around;
+          flex-grow: 0.05;
+
+          button {
+            padding: 0;
+            overflow: hidden;
+            border-width: 0;
+            outline: none;
+            width: 25%;
+            font-weight: bold;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+            color: #ecf0f1;
+            transition: background-color 0.3s;
+          }
+
+          & #first {
+            background-color: #e67e22;
+            &:hover {
+              background-color: #d35400;
+            }
+          }
+
+          & #second {
+            background-color: #2ecc71;
+            &:hover {
+              background-color: #27ae60;
+            }
+          }
+        }
+      }
+
+      // dimmed background cover for the modal view
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+      }
+
+      // modal = on = visible
+      &:target {
+        .modal-switch {
+          &-container {
+            display: flex;
+          }
+        }
+
+        &:before {
+          display: block;
+        }
       }
     }
-      
-      &:before {
-        display: block;
-      }
   }
 }
-
-// .btn {
-//     border-width: 0;
-//     outline: none;
-//     border-radius: 2px;
-//     box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
-//     background-color: #2ecc71;
-//     color: #ecf0f1;
-//     transition: background-color .3s;
-
-//   &:hover, &:focus {
-//     background-color: #27ae60;
-//   }
-
-//   &:before {
-//     content: "";
-
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-
-//     display: block;
-//     width: 0;
-//     padding-top: 0;
-
-//     border-radius: 100%;
-//     background-color: rgba(236, 240, 241, .3);
-
-//     -webkit-transform: translate(-50%, -50%);
-//     -moz-transform: translate(-50%, -50%);
-//     -ms-transform: translate(-50%, -50%);
-//     -o-transform: translate(-50%, -50%);
-//     transform: translate(-50%, -50%);
-//   }
-
-//   &:active:before {
-//     width: 120%;
-//     padding-top: 120%;
-//     transition: width .2s ease-out, padding-top .2s ease-out;
-//   }
-// }
