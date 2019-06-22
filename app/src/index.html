@@ -8,11 +8,57 @@
       @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
     </style>
     <link rel="stylesheet" href="less/style.css" />
+    <script src="https://kit.fontawesome.com/c397fcca4c.js"></script>
+    <script defer src="../libs/jquery-3.4.1.js"></script>
     <script defer src="js/Main.js"></script>
     <title>Planmanager</title>
   </head>
   <body>
     <header>
+      <!-- tabs -->
+      <nav class="tabsystem" role="navigation">
+        <ul>
+          <li class="tabs"><a href="#">TEST</a></li>
+          <li id="add"><a href="#">+</a></li>
+        </ul>
+      </nav>
+      <!-- tabs end -->
+      <!-- sidebar -->
+      <div class="sidebar animate show">
+        <button class="animate"><i class="fas fa-bars"></i></button>
+        <ul class="nav-actions">
+          <li>
+            <a class="animate" href="#"><i class="fi-arrow-left"></i></a>
+          </li>
+          <li>
+            <a class="animate" href="#"><i class="fi-home"></i></a>
+          </li>
+          <li>
+            <a class="animate" href="#"><i class="fi-magnifying-glass"></i></a>
+          </li>
+        </ul>
+        <h3 class="nav-title">Settings</h3>
+        <div class="nav-body">
+          <div class="divider expander">
+            <h4><i class="fi-trees"></i>Print</h4>
+            <ul class="animate">
+              <li class="thin-divider">Redwood</li>
+              <li class="thin-divider">Cedar</li>
+              <li>Pine</li>
+            </ul>
+          </div>
+          <div class="divider expander">
+            <h4><i class="fi-mountains"></i> Export</h4>
+            <ul class="animate">
+              <li class="thin-divider">Everest</li>
+              <li class="thin-divider">Kilimanjaro</li>
+              <li class="thin-divider">Mckinley</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- sidebar end -->
       <h1>...get managed by StudyManager</h1>
     </header>
     <main>

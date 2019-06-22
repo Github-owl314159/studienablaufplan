@@ -5,31 +5,50 @@ const app = () => {
 		buttonArr[i] = [];
 		for (let j = 0; j < 6; j++) {
 			buttonArr[i][j] = document.getElementById(`module-${i + 1}-${j + 1}`);
-			buttonArr[i][j].addEventListener("click", (event) => {
+			buttonArr[i][j].addEventListener("click", event => {
 				console.log(event);
 			});
 		}
 	}
+	// add eventListener to buttons
+	const btnCancel = document.getElementById("first").addEventListener(
+		"click",
+		() => {
+			console.log("clicked: btnCancel");
+			location.href = "#";
+		},
+		false
+	);
 
-	// Testumgebung
-	// buttonArr[0][0].addEventListener("click", () => {
-	// 	const body = document.getElementsByTagName("body");
-	// 	const grid = document.getElementsByClassName("grid-container");
-	// 	const testDiv =	document.createElement("div");
-	// 	testDiv.setAttribute("class", "test");
-	// 	const buttonLeft = testDiv.appendChild(document.createElement("button"));
-	// 	buttonLeft.innerText = "Bestätigen";
-	// 	buttonLeft.setAttribute("id", "popupBtnLeft");
-	// 	const buttonRight =	testDiv.appendChild(document.createElement("button"));
-	// 	buttonRight.addEventListener("click", () => {
-	// 		testDiv.remove();
-	// 	});
-	// 	buttonRight.innerText = "Abbrechen";
-	// 	buttonRight.setAttribute("id", "popupBtnRight");
-	// 	buttonRight.setAttribute("class", "btn");
-	// 	body[0].appendChild(testDiv);
-	// });
-	//  Ende von Testumgebung
+	// sidebar
+	$("button").on("click", function () {
+		$(".sidebar").toggleClass("show");
+	});
+
+	$(".expander h4").on("click", function () {
+		$(this)
+			.siblings("ul")
+			.toggleClass("seen");
+	});
+	$(".expander li").on("click", function () {
+		$(this)
+			.toggleClass("selected")
+			.siblings("li")
+			.removeClass("selected");
+	});
+	// sidebar end
 };
 
 app();
+
+// Testumgebung
+const tabsystem = $(".tabsystem");
+const tabs = $("div.tabs");
+const addTab = $("#add").on("click", () => {
+	// create tab
+	$("#add").before('<li class="tabs"><a href="#">TEST</a></li>');
+	if ($(".tabs").length === 5) {
+		$("#add").detach();
+	}
+});
+//  Ende von Testumgebung

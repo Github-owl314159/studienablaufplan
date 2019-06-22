@@ -1,0 +1,6 @@
+- Primärresourcen: Schedules, Modules
+
+- Verwaltung von Studienablaufplänen (schedules) : 
+    anlegen, bearbeiten, löschen
+- Verwaltung von Modulen (modules): 
+    anlegen, bearbeiten, löschen

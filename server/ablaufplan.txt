@@ -1,0 +1,16 @@
+- "npm run start" starts node server and loads index.js
+- index.js:
+    - get information about system (?)
+    - connect to DB
+    - check if DB "studymanagerDB" exists:
+        :false
+            - create "studymanagerDB"
+            - create collections and load data from loadData.json
+        :true -> continue
+    - routes
+    - wait for client
+- client connects 
+    - route "/" loads
+        - page load "choose schedule"
+- client makes different actions on webpage => generates different ajax calls
+    - code loads according to client request url

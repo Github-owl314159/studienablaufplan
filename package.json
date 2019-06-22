@@ -30,6 +30,7 @@
     "express": "^4.17.0",
     "less": "^3.9.0",
     "less-plugin-clean-css": "^1.5.1",
+    "mongodb": "^3.2.7",
     "place": "^1.2.1"
   }
 }
