@@ -18,6 +18,11 @@ server.use(bodyParser.json());
 
 // routes
 server.get("", (req, res) => {
+	console.log(req);
+	if (!global.minEcts) {
+		// get minEcts from client
+		res.send("<p>test</p>");
+	}
 	res.json({
 		_links: {
 			self: { href: `${BASE_URI}` },
@@ -27,9 +32,27 @@ server.get("", (req, res) => {
 	});
 });
 
-server.get("/schedules", (req, res) => {});
+server.get("/test", (req, res) => {
+	// WiP
+	if (req.params === "ects") {
+		res.send("<p>params</p>");
+	}
+	if (!global.minEcts) {
+		res.json({ test: "hello" });
+		// res.send(
+		// 	"<form><label for='ects'>What is the minimum ECTS?</label><input type='number' name='ects'><button type='submit'>Submit</button></form>"
+		// );
+	}
+	res.end();
+});
 
-server.get("/modules", (req, res) => {});
+server.get("/schedules", (req, res) => {
+	// WiP
+});
+
+server.get("/modules", (req, res) => {
+	// WiP
+});
 
 server.post("/module", (req, res) => {
 	console.log("POST", req.body.message, req.body.user);
