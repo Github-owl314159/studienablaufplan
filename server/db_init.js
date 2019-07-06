@@ -12,7 +12,6 @@ dbClient.connect("mongodb://localhost:27017", (error, client) => {
 	const db = client.db("studymanagerDB");
 	console.log("Connected to MongoDB.");
 	try {
-		// TODO: check if data is not already in DB
 		let schedules = db.collection("schedules");
 		schedules.insertMany([
 			{

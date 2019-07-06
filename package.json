@@ -10,8 +10,8 @@
     "debug": "npm run clean:release && npm run static && npm run js && npm run css",
     "start": "node server/index.js",
     "build": "npm run clean && npm install && npm run static:min && npm run css:min && npm run js:min",
-    "static": "cp -r app/src/images/. app/release && cp app/src/index.html app/release/index.html",
-    "static:min": "npm run static && place app/release/index.html style.css style.min.css && place app/release/index.html main.js main.min.js",
+    "static": "cp -r app/src/images/. app/release && cp app/src/index.html app/release/index.html && cp app/libs/jquery-3.4.1.js app/release",
+    "static:min": "npm run static && place app/release/index.html less/style.css style.min.css && place app/release/index.html js/Main.js main.min.js && place app/release/index.html ../libs/jquery-3.4.1.js jquery-3.4.1.js",
     "css": "lessc app/src/less/style.less app/release/style.css",
     "css:min": "lessc --clean-css app/src/less/style.less app/release/style.min.css",
     "postcss:min": "rm -f app/release/style.css",
@@ -25,12 +25,15 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-minify": "^0.5.0",
+    "body-parser": "^1.19.0",
     "browserify": "^16.2.3",
+    "cors": "^2.8.5",
     "eslint": "^5.16.0",
     "express": "^4.17.0",
     "less": "^3.9.0",
     "less-plugin-clean-css": "^1.5.1",
     "mongodb": "^3.2.7",
+    "mongoose": "^5.6.3",
     "place": "^1.2.1"
   }
 }

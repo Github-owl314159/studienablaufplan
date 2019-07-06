@@ -2,19 +2,28 @@
 // Create database 'Library': mongo && use Library
 // npm install mongodb
 
-const dbClient = require("mongodb").MongoClient;
+module.exports = (function () {
+	let mongoose = require("mongoose");
+	require("./models/modules");
 
-dbClient.connect("mongodb://localhost:27017", (error, client) => {
-	if (error) {
-		console.error(error);
-		process.exit(-1);
-	}
-	const db = client.db("studymanagerDB");
-	console.log("Connected to MongoDB.");
-	try {
-		// do something
-	}
-	finally {
-		client.close();
-	}
-});
+	let dbPort = 27017;
+	let mongoDB = `mongodb://localhost:${dbPort}/studymanagerDB`;
+
+	mongoose.connect(mongoDB, { useNewUrlParser: true });
+
+	mongoose.connection.on(
+		"error",
+		console.error.bind(console, "MongoDB connection error:")
+	);
+
+	mongoose.connection.on("open", () => {
+		console.log(`Connected to ${mongoDB}`);
+	});
+})();
+
+// modules.create({ name: "Algebra", ects: 10 }, err => {
+// 	if (err) {
+// 		// eslint-disable-next-line no-undef
+// 		handleError(err);
+// 	}
+// });
