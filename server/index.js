@@ -7,6 +7,9 @@ let Schedules = require("./models/schedules.js");
 const PORT = 8080;
 const BASE_URI = `http://localhost:${PORT}`;
 
+// every module must have a minimum of 5
+global.minEcts = 5;
+
 let server = express();
 
 // get connection to db
@@ -18,11 +21,6 @@ server.use(bodyParser.json());
 
 // routes
 server.get("", (req, res) => {
-	console.log(req);
-	if (!global.minEcts) {
-		// get minEcts from client
-		res.send("<p>test</p>");
-	}
 	res.json({
 		_links: {
 			self: { href: `${BASE_URI}` },

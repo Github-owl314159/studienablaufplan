@@ -5,55 +5,9 @@
   body {
     font-family: "Roboto", sans-serif;
     background-color: #ddd;
+    overflow: hidden;
 
     header {
-      .tabsystem {
-        position: absolute;
-        top: 1%;
-
-        ul {
-          list-style: none;
-          margin: 0;
-          font-weight: bold;
-
-          li {
-            border: 1px solid #ccc;
-            border-right: none;
-            display: inline-block;
-            position: relative;
-            border-top-left-radius: 0.75em;
-            background-color: #eee;
-
-            &:after {
-              content: " ";
-              border-top-right-radius: 5em;
-              border: 1px solid #ccc;
-              border-left: none;
-              position: absolute;
-              width: 1em;
-              height: 100%;
-              top: -1px;
-              background: #eee;
-              z-index: 1;
-            }
-
-            a {
-              color: #999;
-              text-shadow: 0 1px 0 #fff;
-              display: inline-block;
-              padding: 0.5em 1em;
-              text-decoration: none;
-            }
-          }
-          #add {
-            a {
-              padding-left: 24px;
-              padding-right: 0px;
-            }
-          }
-        }
-      }
-
       // sidebar
 
       @sb: #a0a0a0;
@@ -85,23 +39,7 @@
         }
         .nav-body {
           height: 100%;
-          overflow: scroll;
-        }
-        .nav-actions {
-          padding: 1.25em 0;
-          li {
-            display: inline-block;
-            padding: 0 13px;
-            a {
-              color: @sb2;
-              &:hover {
-                color: #fff;
-              }
-            }
-            i {
-              font-size: 30px;
-            }
-          }
+          overflow: hidden;
         }
         .divider {
           text-align: left;
@@ -113,31 +51,6 @@
             &:hover {
               color: #fff;
             }
-          }
-        }
-        .thin-divider {
-          border-bottom: solid 1px @sb2;
-        }
-      }
-      .expander {
-        ul {
-          height: 0;
-          overflow: hidden;
-          border-bottom: solid 1px @sb2;
-          &.seen {
-            height: 97px;
-          }
-        }
-        li {
-          padding: 8px 10px;
-          -webkit-transition: all 0.3s;
-          border-left: 0 solid @sb2;
-          &:hover {
-            color: #fff;
-          }
-          &.selected {
-            border-left: 35px solid @sb2;
-            color: #fff;
           }
         }
       }
@@ -185,7 +98,7 @@
       h1 {
         text-align: center;
         text-shadow: 0 1px 0 #fff;
-        margin-top: 9%;
+        margin-top: 3%;
       }
     }
 
@@ -198,6 +111,23 @@
         margin: 3% 0 3% 0;
       }
 
+      #schedule-name-div {
+        display: flex;
+        margin: 6% 0 4% 0;
+
+        #schedule-name {
+          text-shadow: 0 1px 0 #fff;
+          font-size: 145%;
+          font-weight: bold;
+        }
+
+        i {
+          margin-left: 10px;
+          align-self: center;
+          cursor: pointer;
+        }
+      }
+
       .grid-container {
         display: grid;
         width: 80vw;
@@ -205,6 +135,7 @@
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(6, 1fr);
         grid-gap: 2px;
+        margin-bottom: 4%;
 
         a {
           display: flex;
@@ -230,90 +161,189 @@
       }
     }
 
-    .modal-switch {
-      &-container {
+    .addModule-modal {
+      flex-direction: column;
+      position: absolute;
+      align-items: center;
+      width: 39vw;
+      height: 70vh;
+      top: 8vh;
+      left: 33vw;
+      border-radius: 15px;
+      background-color: #eceff1;
+      display: none;
+
+      a {
+        text-decoration: none;
+        align-self: flex-end;
+        margin-right: 3%;
+        font-size: 180%;
+        font-weight: bold;
+        color: #e91e63;
+
+        &:hover {
+          color: #ad1457;
+        }
+      }
+
+      .addModule-modal-content {
+        display: flex;
+        height: 66%;
+        align-items: center;
         flex-direction: column;
-        position: absolute;
-        width: 80vw;
-        height: 70vh;
-        top: 8vh;
-        left: 10vw;
-        border-radius: 15px;
-        background-color: #eceff1;
-        display: none;
 
-        a {
-          text-decoration: none;
-          align-self: flex-end;
-          margin-right: 3%;
-          font-size: 180%;
-          font-weight: bold;
+        h2 {
+          margin: 10% 0 35% 0;
         }
+      }
 
-        form {
+      form {
+        display: flex;
+        flex-direction: column;
+
+        #modul-name-div {
           display: flex;
-          flex-direction: column;
-        }
 
-        .modal-buttons {
-          display: flex;
-          justify-content: space-around;
-          margin-top: 35%;
-
-          button {
-            padding: 0;
-            overflow: hidden;
-            border-width: 0;
-            outline: none;
-            width: 25%;
-            height: 200%;
-            font-weight: bold;
-            border-radius: 2px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-            color: #ecf0f1;
-            transition: background-color 0.3s;
+          label {
+            width: 100px;
           }
 
-          & #first {
-            background-color: #e67e22;
-            &:hover {
-              background-color: #d35400;
-            }
+          input {
+            margin-left: 5px;
+          }
+        }
+
+        #modul-ects-div {
+          display: flex;
+
+          label {
+            width: 100px;
           }
 
-          & #second {
-            background-color: #2ecc71;
-            &:hover {
-              background-color: #27ae60;
-            }
+          input {
+            margin-left: 5px;
           }
         }
       }
 
-      // dimmed background cover for the modal view
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        display: none;
-      }
-
-      // modal = on = visible
-      &:target {
-        .modal-switch {
-          &-container {
-            display: flex;
-          }
-        }
-
-        &:before {
-          display: block;
-        }
+      .addModule-modal-buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 87%;
       }
     }
   }
 }
+
+#reqWarning {
+  color: red;
+}
+
+.bg-dimmed {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+button {
+  padding: 0;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  width: 25%;
+  height: 200%;
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  color: #ecf0f1;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+& #first {
+  background-color: #e67e22;
+  &:hover {
+    background-color: #d35400;
+  }
+}
+
+& #second {
+  background-color: #2ecc71;
+  &:hover {
+    background-color: #27ae60;
+  }
+}
+
+& #addModule {
+  background-color: #757575;
+  width: 60%;
+  margin-right: 50px;
+  &:hover {
+    background-color: #9e9e9e;
+  }
+}
+
+& #saveSchedule {
+  background-color: #757575;
+  width: 60%;
+  margin-left: 50px;
+  &:hover {
+    background-color: #9e9e9e;
+  }
+}
+
+#buttonDiv {
+  display: flex;
+  width: 50%;
+  height: 3vh;
+}
+
+// .tabsystem {
+//   position: absolute;
+//   top: 1%;
+
+//   ul {
+//     list-style: none;
+//     margin: 0;
+//     font-weight: bold;
+
+//     li {
+//       border: 1px solid #ccc;
+//       border-right: none;
+//       display: inline-block;
+//       position: relative;
+//       border-top-left-radius: 0.75em;
+//       background-color: #eee;
+
+//       &:after {
+//         content: " ";
+//         border-top-right-radius: 5em;
+//         border: 1px solid #ccc;
+//         border-left: none;
+//         position: absolute;
+//         width: 1em;
+//         height: 100%;
+//         top: -1px;
+//         background: #eee;
+//         z-index: 1;
+//       }
+
+//       a {
+//         color: #999;
+//         text-shadow: 0 1px 0 #fff;
+//         display: inline-block;
+//         padding: 0.5em 1em;
+//         text-decoration: none;
+//       }
+//     }
+//     #add {
+//       a {
+//         padding-left: 24px;
+//         padding-right: 0px;
+//       }
+//     }
+//   }
+// }

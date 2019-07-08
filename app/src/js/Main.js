@@ -1,36 +1,84 @@
 const app = () => {
-	// add eventListener to every grid-cell
-	let buttonArr = [];
-	for (let i = 0; i < 6; i++) {
-		buttonArr[i] = [];
-		for (let j = 0; j < 6; j++) {
-			buttonArr[i][j] = document.getElementById(`module-${i + 1}-${j + 1}`);
-			buttonArr[i][j].addEventListener("click", event => {
-				console.log(event);
-			});
-		}
-	}
-	// add eventListener to buttons
-	const btnCancel = document.getElementById("first").addEventListener(
-		"click",
-		() => {
-			console.log("clicked: btnCancel");
-			location.href = "#";
-		},
-		false
-	);
-
-	// sidebar
-	$("button").on("click", function () {
-		$(".sidebar").toggleClass("show");
+	// global variable: NUMBER_OF_MODULES, shows the current number of children of the grid-container
+	NUMBER_OF_MODULES = 0;
+	$("#addModule").on("click", evt => {
+		evt.preventDefault();
+		$(".grid-container").append(
+			`<a href='#' id='module-${NUMBER_OF_MODULES}'><p>WPF</p></a>`
+		);
+		$(`#module-${NUMBER_OF_MODULES}`).on("click", () => {
+			$(".addModule-modal")
+				.attr("data-module", `${NUMBER_OF_MODULES}`)
+				.css("display", "flex");
+			$(".bg-dimmed").css("display", "initial");
+		});
+		NUMBER_OF_MODULES++;
 	});
 
-	$(".expander h4").on("click", function () {
+	// add eventListener to buttons
+	$("#first").on("click", () => {
+		$(".addModule-modal").css("display", "none");
+		$(".bg-dimmed").css("display", "none");
+	});
+
+	$("#second").on("click", evt => {
+		evt.preventDefault();
+		let modulName = $("#modul-name-div input").val();
+		let ects = $("#modul-ects-div").val();
+		if (modulName && ects) {
+			console.log("ok");
+			return;
+		}
+		console.log("Please fill in all fields.");
+		$(".addModule-modal-content").append(
+			"<p id='reqWarning' style='margin-top: 20%;'>Please fill in all fields.</p>"
+		);
+	});
+
+	$("#x").on("click", () => {
+		$(".addModule-modal").css("display", "none");
+		$(".bg-dimmed").css("display", "none");
+	});
+
+	$(".fa-pencil-alt").on("click", () => {
+		let content = $("#schedule-name").text();
+		$("#schedule-name").replaceWith(
+			`<input id='schedule-name-input' type='text' value='${content}'>`
+		);
+		$("#schedule-name-input").focus();
+		$("#schedule-name-input")
+			.css("font-size", "145%")
+			.css("margin", "3% 0 3% 0")
+			.css("font-weight", "bold")
+			.on("focusout keypress", evt => {
+				if (evt.type === "focusout" || evt.keyCode === 13) {
+					let content = $("#schedule-name-input").val();
+					$("#schedule-name-input").replaceWith(
+						`<p id='schedule-name'>${content}</p>`
+					);
+				}
+			})
+			.on("change", () => {
+				console.log("change");
+			});
+	});
+
+	// sidebar
+	$("#sidebarButton").on("click", () => {
+		if (!$(".sidebar").hasClass("show")) {
+			$(".sidebar").addClass("show");
+		}
+		else {
+			$(".sidebar").removeClass("show");
+		}
+	});
+
+	$(".expander h4").on("click", () => {
 		$(this)
 			.siblings("ul")
 			.toggleClass("seen");
 	});
-	$(".expander li").on("click", function () {
+	$(".expander li").on("click", () => {
 		$(this)
 			.toggleClass("selected")
 			.siblings("li")
@@ -40,15 +88,3 @@ const app = () => {
 };
 
 app();
-
-// Testumgebung
-const tabsystem = $(".tabsystem");
-const tabs = $("div.tabs");
-const addTab = $("#add").on("click", () => {
-	// create tab
-	$("#add").before('<li class="tabs"><a href="#">TEST</a></li>');
-	if ($(".tabs").length === 5) {
-		$("#add").detach();
-	}
-});
-//  Ende von Testumgebung
