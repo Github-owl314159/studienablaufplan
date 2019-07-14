@@ -11,18 +11,11 @@
     <script src="https://kit.fontawesome.com/c397fcca4c.js"></script>
     <script defer src="../libs/jquery-3.4.1.js"></script>
     <script defer src="js/Main.js"></script>
-    <title>Planmanager</title>
+    <title>Studymanager</title>
   </head>
   <body>
     <header>
-      <!-- tabs -->
-      <!-- <nav class="tabsystem" role="navigation">
-        <ul>
-          <li class="tabs"><a href="#">TEST</a></li>
-          <li id="add"><a href="#">+</a></li>
-        </ul>
-      </nav> -->
-      <!-- tabs end -->
+      <h1>...get managed by StudyManager</h1>
       <!-- sidebar -->
       <div class="sidebar animate ">
         <button id="sidebarButton" class="animate">
@@ -36,17 +29,15 @@
           <div class="divider ">
             <h4>Export</h4>
           </div>
-          <div class="divider ">
+          <div id="changeScheduleButton" class="divider ">
             <h4>Change schedule</h4>
           </div>
-          <div class="divider ">
+          <div id="deleteScheduleButton" class="divider ">
             <h4>Delete schedule</h4>
           </div>
         </div>
       </div>
-
       <!-- sidebar end -->
-      <h1>...get managed by StudyManager</h1>
     </header>
     <div class="bg-dimmed"></div>
     <main>
@@ -56,60 +47,68 @@
       </div>
       <div class="grid-container"></div>
       <div id="buttonDiv">
-        <button id="addModule">Add module</button>
-        <button id="saveSchedule">Save schedule</button>
+        <button class="addModuleButton">Add module</button>
+        <button class="saveScheduleButton disabled">Save schedule</button>
       </div>
     </main>
-
-    <div class="addModule-modal">
+    <!-- add module modal -->
+    <div class="modal-base" id="addModule">
       <a href="#" id="x">x</a>
-      <div class="addModule-modal-content">
+      <div id="aM-content">
         <h2>Create New Module</h2>
-        <form action="#" id="modul-form">
-          <div id="modul-name-div">
-            <label for="modul-name">Modul Name:</label>
-            <input type="text" name="modul-name" />
+        <form action="#">
+          <div>
+            <label for="modulName">Modul Name:</label>
+            <input type="text" name="modulName" />
           </div>
           <br />
           <br />
-          <div id="modul-ects-div">
-            <label for="modul-ects">Ects:</label>
-            <input type="number" name="modul-ects" />
+          <div>
+            <label for="modulEcts">Ects:</label>
+            <input type="number" name="modulEcts" min="0" />
+          </div>
+          <br />
+          <br />
+          <div>
+            <button class="cancelButton" type="reset">Cancel</button>
+            <button class="confirmButton" type="submit">
+              Confirm
+            </button>
           </div>
         </form>
       </div>
-      <div class="addModule-modal-buttons">
-        <button id="first" type="reset">Cancel</button>
-        <button id="second" type="submit" form="modul-form">
-          Confirm
-        </button>
+    </div>
+    <!-- show module modal -->
+    <div class="modal-base" id="showModule">
+      <a href="#" id="cancel-sM">x</a>
+      <div id="sM-content">
+        <h2>Show Module</h2>
+        <form action="#">
+          <div id="sM-name">
+            <label>Modul Name:</label>
+          </div>
+          <br />
+          <br />
+          <div id="sM-ects">
+            <label>Ects:</label>
+          </div>
+          <button id="deleteModuleButton">Delete Module</button>
+        </form>
       </div>
     </div>
-    <!-- <div class="modal-switch" id="modal">
-      <div class="modal-switch-container">
-        <a href="#">x</a>
-        <div class="modal-switch-content">
-          <form action="#" id="modul-form">
-            <div id="modul-name-div">
-              <label for="modul-name">Modul Name:</label>
-              <input type="text" name="modul-name" />
-            </div>
-            <br />
-            <br />
-            <div id="modul-ects-div">
-              <label for="modul-ects">Ects:</label>
-              <input type="number" name="modul-ects" />
-            </div>
-          </form>
-        </div>
-        <div class="modal-buttons">
-          <button id="first" type="reset">Abbrechen</button>
-          <button id="second" type="submit" form="modul-form">
-            Bestätigen
-          </button>
+    <!-- show schedule modal -->
+    <div class="modal-base" id="scheduleModal">
+      <a href="#" id="cancel-scheduleModal">x</a>
+      <div id="scheduleModal-content">
+        <h2>Choose Schedule</h2>
+        <div id="scheduleModal-list"></div>
+        <div id="pagination">
+          <i class="fas fa-arrow-left disabled"></i>
+          <i class="fas fa-arrow-right disabled"></i>
         </div>
       </div>
-    </div> -->
+      <button id="confirmScheduleButton" class="disabled">Confirm</button>
+    </div>
     <footer></footer>
   </body>
 </html>

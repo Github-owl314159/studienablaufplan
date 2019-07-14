@@ -7,121 +7,107 @@
     <style>
       @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
     </style>
-    <link rel="stylesheet" href="style.min.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/c397fcca4c.js"></script>
     <script defer src="jquery-3.4.1.js"></script>
-    <script defer src="main.min.js"></script>
-    <title>Planmanager</title>
+    <script defer src="main.js"></script>
+    <title>Studymanager</title>
   </head>
   <body>
     <header>
-      <!-- tabs -->
-      <nav class="tabsystem" role="navigation">
-        <ul>
-          <li class="tabs"><a href="#">TEST</a></li>
-          <li id="add"><a href="#">+</a></li>
-        </ul>
-      </nav>
-      <!-- tabs end -->
+      <h1>...get managed by StudyManager</h1>
       <!-- sidebar -->
-      <div class="sidebar animate show">
-        <button class="animate"><i class="fas fa-bars"></i></button>
-        <ul class="nav-actions">
-          <li>
-            <a class="animate" href="#"><i class="fi-arrow-left"></i></a>
-          </li>
-          <li>
-            <a class="animate" href="#"><i class="fi-home"></i></a>
-          </li>
-          <li>
-            <a class="animate" href="#"><i class="fi-magnifying-glass"></i></a>
-          </li>
-        </ul>
+      <div class="sidebar animate ">
+        <button id="sidebarButton" class="animate">
+          <i class="fas fa-bars"></i>
+        </button>
         <h3 class="nav-title">Settings</h3>
         <div class="nav-body">
-          <div class="divider expander">
-            <h4><i class="fi-trees"></i>Print</h4>
-            <ul class="animate">
-              <li class="thin-divider">Redwood</li>
-              <li class="thin-divider">Cedar</li>
-              <li>Pine</li>
-            </ul>
+          <div class="divider ">
+            <h4>Print</h4>
           </div>
-          <div class="divider expander">
-            <h4><i class="fi-mountains"></i> Export</h4>
-            <ul class="animate">
-              <li class="thin-divider">Everest</li>
-              <li class="thin-divider">Kilimanjaro</li>
-              <li class="thin-divider">Mckinley</li>
-            </ul>
+          <div class="divider ">
+            <h4>Export</h4>
+          </div>
+          <div id="changeScheduleButton" class="divider ">
+            <h4>Change schedule</h4>
+          </div>
+          <div id="deleteScheduleButton" class="divider ">
+            <h4>Delete schedule</h4>
           </div>
         </div>
       </div>
-
       <!-- sidebar end -->
-      <h1>...get managed by StudyManager</h1>
     </header>
+    <div class="bg-dimmed"></div>
     <main>
-      <p>Name_von_Studienplan:</p>
-      <div class="grid-container">
-        <!-- row 1 -->
-        <a href="#modal" id="module-1-1"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-1-3"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-1-2"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-1-4"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-1-5"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-1-6"><p>Wahlpflichtfach</p></a>
-        <!-- row 2 -->
-        <a href="#modal" id="module-2-1"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-2-2"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-2-3"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-2-4"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-2-5"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-2-6"><p>Wahlpflichtfach</p></a>
-        <!-- row 3 -->
-        <a href="#modal" id="module-3-1"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-3-2"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-3-3"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-3-4"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-3-5"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-3-6"><p>Wahlpflichtfach</p></a>
-        <!-- row 4 -->
-        <a href="#modal" id="module-4-1"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-4-2"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-4-3"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-4-4"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-4-5"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-4-6"><p>Wahlpflichtfach</p></a>
-        <!-- row 5 -->
-        <a href="#modal" id="module-5-1"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-5-2"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-5-3"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-5-4"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-5-5"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-5-6"><p>Wahlpflichtfach</p></a>
-        <!-- row 6 -->
-        <a href="#modal" id="module-6-1"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-6-2"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-6-3"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-6-4"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-6-5"><p>Wahlpflichtfach</p></a>
-        <a href="#modal" id="module-6-6"><p>Wahlpflichtfach</p></a>
+      <div id="schedule-name-div">
+        <p id="schedule-name">My first schedule</p>
+        <i class="fas fa-pencil-alt"></i>
+      </div>
+      <div class="grid-container"></div>
+      <div id="buttonDiv">
+        <button class="addModuleButton">Add module</button>
+        <button class="saveScheduleButton disabled">Save schedule</button>
       </div>
     </main>
-    <div class="modal-switch" id="modal">
-      <div class="modal-switch-container">
-        <a href="#">x</a>
-        <div class="modal-switch-content">
-          <form action="#">
-            <input type="text" placeholder="some input" />
-            <textarea name="testdata" id="test" cols="30" rows="10"></textarea>
-          </form>
-        </div>
-        <div class="modal-buttons">
-          <button id="first" type="button">Abbrechen</button>
-          <button id="second" type="button">Bestätigen</button>
+    <!-- add module modal -->
+    <div class="modal-base" id="addModule">
+      <a href="#" id="x">x</a>
+      <div id="aM-content">
+        <h2>Create New Module</h2>
+        <form action="#">
+          <div>
+            <label for="modulName">Modul Name:</label>
+            <input type="text" name="modulName" />
+          </div>
+          <br />
+          <br />
+          <div>
+            <label for="modulEcts">Ects:</label>
+            <input type="number" name="modulEcts" min="0" />
+          </div>
+          <br />
+          <br />
+          <div>
+            <button class="cancelButton" type="reset">Cancel</button>
+            <button class="confirmButton" type="submit">
+              Confirm
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- show module modal -->
+    <div class="modal-base" id="showModule">
+      <a href="#" id="cancel-sM">x</a>
+      <div id="sM-content">
+        <h2>Show Module</h2>
+        <form action="#">
+          <div id="sM-name">
+            <label>Modul Name:</label>
+          </div>
+          <br />
+          <br />
+          <div id="sM-ects">
+            <label>Ects:</label>
+          </div>
+          <button id="deleteModuleButton">Delete Module</button>
+        </form>
+      </div>
+    </div>
+    <!-- show schedule modal -->
+    <div class="modal-base" id="scheduleModal">
+      <a href="#" id="cancel-scheduleModal">x</a>
+      <div id="scheduleModal-content">
+        <h2>Choose Schedule</h2>
+        <div id="scheduleModal-list"></div>
+        <div id="pagination">
+          <i class="fas fa-arrow-left disabled"></i>
+          <i class="fas fa-arrow-right disabled"></i>
         </div>
       </div>
+      <button id="confirmScheduleButton" class="disabled">Confirm</button>
     </div>
     <footer></footer>
   </body>

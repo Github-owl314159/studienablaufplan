@@ -1,7 +1,3 @@
-// Install MongoDB, start service: mongod --dbpath "/home/user/mongodbdata"
-// Create database 'Library': mongo && use Library
-// npm install mongodb
-
 module.exports = (function () {
 	let mongoose = require("mongoose");
 	require("./models/modules");
