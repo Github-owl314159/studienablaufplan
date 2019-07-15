@@ -1,3 +1,4 @@
+const $ = require("../../libs/jquery-3.4.1.js");
 // global variable: NUMBER_OF_MODULES, shows the current number of children of the grid-container
 let NUMBER_OF_MODULES = 0;
 
@@ -315,7 +316,9 @@ const app = () => {
 						`);
 						$(`#schedule-${i}`).on("click", chooseSchedule);
 					}
-					$(".fa-arrow-right").toggleClass("disabled");
+					if (!$(".fa-arrow-right").hasClass("disabled")) {
+						$(".fa-arrow-right").toggleClass("disabled");
+					}
 				}
 				else {
 					// render list with entries
@@ -373,9 +376,22 @@ const app = () => {
 			.remove();
 
 		let currentPage = $("#scheduleModal-list").attr("data-page");
+		currentPage--;
+
+		// let n = ["a","b","c","d","e","f","g","h","i","j","k"];
+		// let arr2 = [];
+		// let cache2 = [];
+		// for(let i = 0; i < n.length;i++) {
+		// 	if(i%8 === 0 && i !== 0){
+		// 		arr2.push(cache2);
+		// 		cache2 = [];
+		// 	}
+		// 	cache2.push(n[i]);
+		// }
+
+		let i = currentPage * 8;
 		let list = $("#scheduleModal-list").attr("data-list");
 		let listArray = list.split(",");
-		let i = currentPage * 8;
 		let newListArray = listArray.slice(i, listArray.length);
 		if (newListArray.length > 8) {
 			for (let i = 0; i < 8; i++) {

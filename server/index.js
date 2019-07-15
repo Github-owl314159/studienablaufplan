@@ -3,8 +3,10 @@ const cors = require("cors");
 let Modules = require("./models/modules.js");
 let Schedules = require("./models/schedules.js");
 
-const PORT = 8080;
-const BASE_URI = `http://localhost:${PORT}`;
+let port = 8080;
+if (process.argv[2]) {
+	port = process.argv[2];
+}
 
 // every module must have a minimum of 5
 global.minEcts = 5;
@@ -15,28 +17,12 @@ let server = express();
 require("./db_connect.js");
 
 server.use(cors());
-server.use(express.static("../app/release"));
+server.use(express.static("./app/release"));
 server.use(express.json());
 
 // routes
 server.get("/", (req, res) => {
 	res.send();
-});
-
-server.post("/test", (req, res) => {
-	console.log(req.body);
-	res.json(req.body);
-	// WiP
-	// if (req.params === "ects") {
-	// 	res.send("<p>params</p>");
-	// }
-	// if (!global.minEcts) {
-	// 	res.json({ test: "hello" });
-	// res.send(
-	// 	"<form><label for='ects'>What is the minimum ECTS?</label><input type='number' name='ects'><button type='submit'>Submit</button></form>"
-	// );
-	// }
-	// res.end();
 });
 
 server.get("/schedules", (req, res) => {
@@ -72,7 +58,7 @@ server.post("/schedules", (req, res) => {
 			}
 			else if (count >= 1) {
 				// update
-				Schedules.deleteOne({ name: scheduleName }, (err, res) => {
+				Schedules.deleteOne({ name: scheduleName }, err => {
 					if (err) {
 						console.log(err);
 					}
@@ -121,7 +107,7 @@ server.delete("/schedules", (req, res) => {
 		res.sendStatus(400);
 	}
 
-	Schedules.deleteOne({ name: scheduleName }, (err, res) => {
+	Schedules.deleteOne({ name: scheduleName }, err => {
 		if (err) {
 			console.log(err);
 		}
@@ -179,6 +165,6 @@ server.delete("/modules", (req, res) => {
 	res.end();
 });
 
-server.listen(PORT, () => {
-	console.log(`HTTP server listening on port ${PORT}`);
+server.listen(port, () => {
+	console.log(`HTTP server listening on port ${port}`);
 });

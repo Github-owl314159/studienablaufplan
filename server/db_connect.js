@@ -16,10 +16,3 @@ module.exports = (function () {
 		console.log(`Connected to ${mongoDB}`);
 	});
 })();
-
-// modules.create({ name: "Algebra", ects: 10 }, err => {
-// 	if (err) {
-// 		// eslint-disable-next-line no-undef
-// 		handleError(err);
-// 	}
-// });
